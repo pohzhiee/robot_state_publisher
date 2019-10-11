@@ -78,6 +78,7 @@ RobotStatePublisher::RobotStatePublisher(
   static_tf_broadcaster_(node_handle),
   clock_(node_handle->get_clock())
 {
+    node_handle->set_parameters({rclcpp::Parameter("use_sim_time", true)});
   // walk the tree and add segments to segments_
   addChildren(tree.getRootSegment());
 
